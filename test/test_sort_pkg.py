@@ -1,7 +1,6 @@
-import math
 import unittest
 
-from sort_pkg import sort
+from src.sort_pkg import sort
 
 
 class TestSortClassification(unittest.TestCase):

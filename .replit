@@ -1,0 +1,4 @@
+run = "python index.py 10 10 10 1"
+entrypoint = "index.py"
+language = "python3"
+onBoot = "python -m pip install -r requirements.txt"
