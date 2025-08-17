@@ -1,8 +1,8 @@
 # pkgsort
 
-I wrote a function that classifies packages as STANDARD, SPECIAL, or REJECTED based on dimensions and mass. It’s a single function with tests.
+I wrote a small function that classifies packages as STANDARD, SPECIAL, or REJECTED based on dimensions and mass. Simple, fast, and covered by tests.
 
-## What it does
+## Rules
 - Bulky when:
   - volume >= 1,000,000 cm³, or
   - any single dimension >= 150 cm
@@ -19,19 +19,26 @@ Function signature:
 - Returns one of: `"STANDARD" | "SPECIAL" | "REJECTED"`.
 
 ## Project layout
-- `sort_pkg.py` — the implementation
-- `test/` — unit tests (pytest)
+- `src/sort_pkg.py` — the implementation (exports `sort`)
+- `index.py` — tiny CLI for quick runs
+- `test/test_sort_pkg.py` — unit tests (pytest)
 
-## Quick start
+## Quick use
+From Python:
 ```python
-from sort_pkg import sort
+from src.sort_pkg import sort
 print(sort(10, 10, 10, 1))          # STANDARD
 print(sort(150, 1, 1, 0))           # SPECIAL (bulky by dimension)
 print(sort(100, 100, 100, 25))      # REJECTED (bulky by volume + heavy)
 ```
 
-## Run the tests
-I use pytest for the suite in `test/test_sort_pkg.py`.
+From the terminal (CLI):
+```bash
+python index.py 10 10 10 1
+```
+
+## Run tests
+I use pytest for the test suite.
 
 - Install pytest (if needed):
 ```bash
